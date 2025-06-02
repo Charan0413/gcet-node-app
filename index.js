@@ -11,4 +11,4 @@ app.get("/greet",(req,res)=>{
    return res.send (("Greetinngs"))
 })
 app.get("/name",(req,res)=> {res.send("Sricharan")})
-app.get("/weather",(req,res)=> {res.send("31Degrees")})
+app.get("/weather",(req,res)=> {res.send("31Degrees")}) 
