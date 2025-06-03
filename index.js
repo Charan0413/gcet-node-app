@@ -39,15 +39,16 @@ app.post("/login", async (req, res) => {
     const result = await user.insertOne({email,pass});
     return res.json(result);
 });
-// app.get("/",(req,res)=>{
-//     return res.send("hello world")
-// })
-// app.get("/greet",(req,res)=>{
-//    return res.send (("Greetinngs"))
-// })
-// app.get("/name",(req,res)=> {res.send("Sricharan")})
-// app.get("/weather",(req,res)=> {res.send("31Degrees")}) 
-// app.get("/morning",(req,res)=> {res.send("Good morniing!!")}) 
+
+app.get("/",(req,res)=>{
+    return res.send("hello world")
+})
+app.get("/greet",(req,res)=>{
+   return res.send (("Greetinngs"))
+})
+app.get("/name",(req,res)=> {res.send("Sricharan")})
+app.get("/weather",(req,res)=> {res.send("31Degrees")}) 
+app.get("/morning",(req,res)=> {res.send("Good morniing!!")}) 
 
 
 
