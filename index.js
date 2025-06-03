@@ -12,3 +12,19 @@ app.get("/greet",(req,res)=>{
 })
 app.get("/name",(req,res)=> {res.send("Sricharan")})
 app.get("/weather",(req,res)=> {res.send("31Degrees")}) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
