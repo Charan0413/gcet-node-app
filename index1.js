@@ -29,13 +29,13 @@ app.use("/products", productRouter);
 
 
 app.get("/", (req, res) => {
-  return res.send("Hello! Good morning :)");
+  return res.send("Good morning!!)");
 });
 
 app.get("/weather", (req, res) => {
-  return res.send("Heyy!! Today's weather is 28"); 
+  return res.send("28Degrees"); 
 });
 
 app.get("/name", (req, res) => {
-  return res.send("Hello Rishitha!"); 
+  return res.send("Charan"); 
 });
