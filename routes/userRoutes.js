@@ -1,25 +1,25 @@
-import express from 'express'
-import userModel from "../models/userModel.js";
+import express from 'express';
+import productModel from '../models/productModel.js';
 
-const userRouter = express.Router()
+const productRouter = express.Router();
 
-userRouter.post("/register", async (req, res) => {
-  const { name, email, pass } = req.body;
-  const result = await userModel.insertOne({ name: name, email: email, pass: pass });
-  return res.json(result);
+productRouter.get('/', async (req, res) => {
+  try {
+    const products = await productModel.find();
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: 'Error fetching products', error });
+  }
 });
 
-userRouter.post("/login", async (req, res) => {
-  const { email, pass } = req.body;
-  const result = await userModel.findOne({ email, pass });
-  if (!result) return res.json({ message: "Invalid user or password" });
-  return res.json(result);
-});
-
-userRouter.get("/:id", async (req,res)=> {
-    const email = req.params.id;
-    const result = await userModel.findOne({ email });
+productRouter.post("/add", async (req, res) => {
+  try {
+    const { name, description, imgUrl, price } = req.body;
+    const newProduct = new productModel({ name, description, imgUrl, price });
+    const result = await newProduct.save();
     return res.json(result);
+  } catch (error) {
+    res.status(500).json({ message: "Error adding product", error });
+  }
 });
-
-export default userRouter
+export default productRouter;
