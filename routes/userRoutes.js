@@ -1,6 +1,8 @@
 import express from 'express'
 import userModel from "../models/userModel.js";
 import bcrypt from 'bcrypt.js'
+import jwt from "jsonwebtoken"
+const SECRET_KEY = "helloworld"
 
 const userRouter = express.Router()
 
@@ -8,7 +10,7 @@ userRouter.post("/register", async (req, res) => {
   const { name, email, pass } = req.body;
   try {
     const hashpassword = await bycrypt.hash(pass, 10);
-    const result = await userModel.create({ name, email, pass });
+    const result = await userModel.create({ name, email, pass:hashpassword });
     res.json({ message: "User registered successfully", user: result });
   } catch (err) {
     console.error("Registration error:", err);
