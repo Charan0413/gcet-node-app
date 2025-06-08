@@ -1,6 +1,6 @@
 import express from "express";
 import userModel from "../models/userModel.js";
-import bcrypt from "bcrypt"; // ✅ correct package name is 'bcrypt'
+import bcrypt from "bcrypt"; 
 import jwt from "jsonwebtoken";
 
 const SECRET_KEY = "helloworld";
